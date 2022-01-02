@@ -7,8 +7,12 @@
 
 import UIKit
 
+// MARK: - AlertTask
+
 @MainActor
 public final class AlertTask: TaskRunnable {
+
+    // MARK: AlertTask (Public Properties)
 
     public let title: String?
     public let message: String?
@@ -16,9 +20,13 @@ public final class AlertTask: TaskRunnable {
     public let tintColor: UIColor?
     public let presentationContext: UIViewController?
 
+    // MARK: AlertTask (Private Properties)
+
     private let alertController: AlertViewController
 
     private var continuation: CheckedContinuation<Void, Never>?
+
+    // MARK: AlertTask (Public Methods)
 
     public static func alert(with title: String? = nil,
                              message: String? = nil,
@@ -130,11 +138,15 @@ public final class AlertTask: TaskRunnable {
         alertController.addAction(alertAction)
     }
 
+    // MARK: AlertTask (Private Methods)
+
     private func finish() {
         continuation?.resume()
         continuation = nil
     }
 }
+
+// MARK: AlertTask > Action
 
 extension AlertTask {
     public final class Action {
