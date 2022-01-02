@@ -16,16 +16,18 @@ class ViewController: UIViewController {
     }
 
     @IBAction func alertButtonTapped(_ sender: Any) {
-        let alert = AlertTask.alert(with: "Alert 1", actions: [], presentationContext: self)
+        let alert = AlertTask.alert(title: "Alert 1", actions: [], presentationContext: self)
 
         let action = AlertTask.Action(title: "First Action", style: .destructive)
-        let alert2 = AlertTask.alert(with: "Alert 2", actions: [action], presentationContext: nil)
+        let alert2 = AlertTask.alert(title: "Alert 2", actions: [action], presentationContext: nil)
         
         Task {
             try await alert.run()
+            print("Alert 1 finished")
         }
         Task {
             try await alert2.run()
+            print("Alert 2 finished")
         }
     }
 

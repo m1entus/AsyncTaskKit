@@ -28,7 +28,7 @@ public final class AlertTask: TaskRunnable {
 
     // MARK: AlertTask (Public Methods)
 
-    public static func alert(with title: String? = nil,
+    public static func alert(title: String? = nil,
                              message: String? = nil,
                              style: UIAlertController.Style = .alert,
                              actions: [Action],
